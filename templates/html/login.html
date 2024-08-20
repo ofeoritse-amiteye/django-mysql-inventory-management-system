@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/static/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+</head>
+<style>
+    body {
+        text-align: center;
+    }
+    .body {
+        display: inline-block;
+        border: 2px solid #007bff;
+        border-radius: 2px;
+        width: 20%;
+        min-width: 500px;
+        box-shadow: 0 10px 25px rgba(2, 51, 2, 0.4);
+        margin-top: 50px;
+        padding: 20px;
+    }
+    .helptext {
+        visibility: hidden;
+    }
+    li {
+        display: none;
+    }
+    .sform {
+        text-align: left;
+    }
+    .ul {
+        background-color: #007bff;
+        color: white;
+        font-family: cursive;
+        height: 5vh;
+    }
+    label {
+        margin-left: 10px;
+    }
+    input[type=email] {
+        width: 90%;
+        border: none;
+        border-bottom: 2px solid black;
+        margin-left: 10px;
+    }
+    input[type="password"]:focus {
+        border: 3px solid #007bff;
+    }
+    input[type="email"]:focus {
+        border: 3px solid #007bff;
+    }
+    button {
+        width: 80%;
+        border-radius: 10px;
+        border: none;
+        background-color: #5888bc;
+        height: 5vh;
+        color: white;
+        margin: 30px;
+        transition: all 0.1s ease-in-out;
+    }
+
+    button:hover {
+        width: 84%;
+        height: 6vh;
+        box-shadow: 0 10px 25px rgba(2, 51, 2, 0.4);
+        background-color: #007bff;
+    }
+    h6 {
+        width: 100%;
+        text-align: right;
+        padding: 10px;
+    }
+    h5 {
+        font-size: 10px;
+    }
+    a {
+        text-decoration: none;
+        text-align: left;
+    }
+    .img {
+        width: 120px;
+        height: 30px;
+        display: flex;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    @media screen and (max-width: 1080px) {
+        body {
+            font-size: 20px;
+        }
+    }
+    .header-title {
+        font-size: 3em;
+        color: #007bff;
+        margin-top: 60px;
+        margin-bottom: 20px;
+        text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+</style>
+<body>
+    <h1 class="header-title">Inventory Management System</h1>
+    <div class="body">
+        <strong><p>LOGIN</p></strong>
+        {% if error %}
+        <div class="alert alert-warning">
+            <strong>Warning!</strong> Incorrect username or password
+        </div>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <input id="msg" type="text" class="form-control" name="username" placeholder="Username" style="margin-bottom: 30px;">
+            </div>
+            <div class="input-group">
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

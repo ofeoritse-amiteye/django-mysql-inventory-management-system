@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .qrcode-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+            background-color: #f8f9fa;
+        }
+        .qrcode {
+            height: 250px;
+            width: 250px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            border: 2px solid #007bff;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        button {
+            margin-top: 20px;
+            width: 150px;
+            height: 40px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .add-product-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-product-btn i {
+            margin-right: 10px;
+        }
+
+        .add-product-btn:hover {
+            background-color: #218838;
+        }
+        .body
+        {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="sec1" style="margin: 30px;">
+            <a href="/dashboard">
+                <button class="add-product">back</button>
+            </a>
+        </div>
+        <div class="qrcode-container">
+            <div class="qrcode">
+                {% if img %}
+                    <img src="/files/{{img}}" alt="QR code">
+                {% endif %}
+            </div>
+            <button onclick="window.print()">Print</button>
+        </div>
+    </div>
+</body>
+</html>
